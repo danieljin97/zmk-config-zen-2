@@ -7,88 +7,148 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
-#include <dt-bindings/zmk/outputs.h>
-#include <dt-bindings/zmk/rgb.h>
 
 / {
-    chosen {
-        zmk,matrix_transform = &default_transform;
+    combos {
+        compatible = "zmk,combos";
 
-        // zmk,matrix_transform = &five_column_transform;
+        l {
+            bindings = <&sl 4>;
+            key-positions = <5 17>;
+        };
+
+        macros {
+            bindings = <&sl 5>;
+            key-positions = <16 19>;
+        };
+
+        gaming {
+            bindings = <&to 6>;
+            key-positions = <6 18>;
+        };
     };
-};
 
-/ {
-    behaviors {
-        td0: td0 {
-            compatible = "zmk,behavior-tap-dance";
-            label = "TD0";
+    macros {
+        print_screen: print_screen {
+            compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp LEFT_SHIFT>, <&kp CAPS>;
+            bindings = <&kp LEFT_SHIFT &kp LEFT_WIN &kp S>;
+            label = "PRINT_SCREEN";
+        };
+
+        paste_history: paste_history {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LEFT_WIN &kp V>;
+            label = "PASTE_HISTORY";
+        };
+
+        paste_values: paste_values {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LEFT_ALT &kp H &kp V &kp V>;
+            label = "PASTE_VALUES";
+        };
+
+        paste_formatting: paste_formatting {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LEFT_ALT &kp H &kp V &kp R>;
+            label = "PASTE_FORMATTING";
+        };
+
+        email_final: create_table {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LS(R) &kp E &kp G &kp A &kp R &kp D &kp S &kp COMMA &kp RET &kp LS(D) &kp A &kp N &kp I &kp E &kp L &kp SPACE &kp LS(J) &kp I &kp N>;
+            label = "CREATE_TABLE";
         };
     };
 
     keymap {
         compatible = "zmk,keymap";
 
-        default_layer {
-            display-name = "QWERTY";
-
-            // --------------------------------------------------------------------------------
+        colmak_dh {
+            // -----------------------------------------------------------------------------------------
             // |  TAB |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  | BKSP |
-            // | CTRL |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  |  ;  |  '   | 
+            // | CTRL |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  |  ;  |  '   |
             // | SHFT |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  /  | ESC  |
             //                    | GUI | LWR | SPC |   | ENT | RSE  | ALT |
 
+            display-name = "Base";
             bindings = <
-&kp TAB    &kp Q  &kp W  &kp E     &kp R  &kp B          &kp Y        &kp U  &kp I      &kp O    &kp P     &kp BSPC
-&kp LCTRL  &kp A  &kp S  &kp D     &kp F  &kp G          &kp H        &kp J  &kp K      &kp L    &kp SEMI  &kp SQT
-&td0       &kp Z  &kp X  &kp C     &kp V  &kp B          &kp N        &kp M  &kp COMMA  &kp DOT  &kp FSLH  &kp ESC
-                         &kp LGUI  &mo 1  &lt 3 SPACE    &lt 3 ENTER  &mo 2  &kp RALT
+&kp ESC     &kp Q             &kp W               &kp F             &kp P           &kp B          &kp J          &kp L             &kp U      &kp Y    &kp SEMICOLON  &kp DEL
+&kp TAB     &mt LEFT_SHIFT A  &mt LEFT_CONTROL R  &mt LEFT_WIN S    &mt LEFT_ALT T  &kp G          &kp M          &mt LEFT_SHIFT N  &kp E      &kp I    &kp O          &kp ENTER
+&kp LSHIFT  &kp Z             &kp X               &kp C             &kp D           &kp V          &kp K          &kp H             &kp COMMA  &kp DOT  &kp FSLH       &kp RIGHT_SHIFT
+                                                  &kp LEFT_CONTROL  &kp LEFT_ALT    &lt 1 SPACE    &kp BACKSPACE  &mo 2             &mo 3
             >;
         };
 
-        lower_layer {
-            display-name = "NUMBER";
-
+        num {
             // -----------------------------------------------------------------------------------------
             // |  TAB |  1  |  2  |  3  |  4  |  5  |   |  6  |  7  |  8  |  9  |  0  | BKSP |
             // | BTCLR| BT1 | BT2 | BT3 | BT4 | BT5 |   | LFT | DWN |  UP | RGT |     |      |
             // | SHFT |     |     |     |     |     |   |     |     |     |     |     |      |
             //                    | GUI |     | SPC |   | ENT |     | ALT |
 
+            display-name = "Lower";
             bindings = <
-&trans  &kp N1           &kp N2          &kp N3        &kp N4        &kp N5             &kp N6           &kp N7           &kp N8           &kp N9           &kp N0    &kp BSPC
-&trans  &bt BT_CLR_ALL   &bt BT_SEL 0    &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3       &kp LEFT         &kp DOWN         &kp UP           &kp RIGHT        &kp HOME  &kp PG_UP
-&trans  &rgb_ug RGB_OFF  &rgb_ug RGB_ON  &trans        &trans        &rgb_ug RGB_EFF    &rgb_ug RGB_EFR  &rgb_ug RGB_SPI  &rgb_ug RGB_BRI  &rgb_ug RGB_BRD  &kp END   &kp PG_DN
-                                         &trans        &trans        &trans             &kp INS          &kp DEL          &trans
+&trans      &trans        &trans        &trans            &trans  &trans    &trans    &trans        &trans    &trans     &trans  &trans
+&trans      &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3      &kp N4  &kp N5    &kp LEFT  &kp UP_ARROW  &kp DOWN  &kp RIGHT  &trans  &kp SQT
+&kp LSHIFT  &kp NUMBER_6  &kp N7        &kp N8            &kp N9  &kp N0    &trans    &trans        &trans    &trans     &trans  &trans
+                                        &kp LEFT_CONTROL  &trans  &trans    &trans    &trans        &trans
             >;
         };
 
-        raise_layer {
-            display-name = "SYMBOL";
-
+        symbols {
             // -----------------------------------------------------------------------------------------
             // |  TAB |  !  |  @  |  #  |  $  |  %  |   |  ^  |  &  |  *  |  (  |  )  | BKSP |
             // | CTRL |     |     |     |     |     |   |  -  |  =  |  [  |  ]  |  \  |  `   |
             // | SHFT |     |     |     |     |     |   |  _  |  +  |  {  |  }  | "|" |  ~   |
             //                    | GUI |     | SPC |   | ENT |     | ALT |
 
+            display-name = "Raise";
             bindings = <
-&trans  &kp EXCL      &kp AT        &kp HASH  &kp DLLR  &kp PRCNT    &kp CARET  &kp AMPS   &kp ASTRK  &kp LPAR  &kp RPAR  &kp BSPC
-&trans  &none         &none         &none     &none     &none        &kp MINUS  &kp EQUAL  &kp LBKT   &kp RBKT  &kp BSLH  &kp GRAVE
-&trans  &out OUT_USB  &out OUT_BLE  &none     &none     &none        &kp UNDER  &kp PLUS   &kp LBRC   &kp RBRC  &kp PIPE  &kp TILDE
-                                    &trans    &trans    &kp SPACE    &kp RET    &trans     &trans
+&trans  &kp EXCL  &kp AT  &kp HASH  &kp DLLR  &kp PRCNT    &kp CARET  &kp AMPS   &kp KP_MULTIPLY       &kp LEFT_BRACE         &kp RIGHT_BRACE  &trans
+&trans  &trans    &trans  &trans    &trans    &trans       &kp MINUS  &kp EQUAL  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp BSLH         &trans
+&trans  &trans    &trans  &trans    &trans    &trans       &kp UNDER  &kp PLUS   &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp PIPE         &trans
+                          &trans    &trans    &trans       &trans     &trans     &trans
             >;
         };
 
-        layer_3 {
-            display-name = "Fn";
+        function {
             bindings = <
-&trans  &kp F1      &kp F2  &kp F3  &kp F4      &kp F5         &kp F6       &kp F7  &kp F8  &kp F9  &kp F10          &kp F11
-&trans  &bt BT_CLR  &trans  &trans  &sys_reset  &bootloader    &bootloader  &trans  &trans  &trans  &kp PRINTSCREEN  &kp F12
-&trans  &trans      &trans  &trans  &trans      &trans         &trans       &trans  &trans  &trans  &kp SCROLLLOCK   &kp PAUSE_BREAK
-                            &trans  &trans      &trans         &trans       &trans  &trans
+&kp F1  &kp F2  &kp F3  &kp F4  &kp F5  &kp F6    &kp F7    &kp F8       &kp F9         &kp F10  &kp F11  &kp F12
+&trans  &trans  &trans  &trans  &trans  &trans    &kp HOME  &kp PAGE_UP  &kp PAGE_DOWN  &kp END  &trans   &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &trans    &kp INS      &trans         &trans   &trans   &trans
+                        &trans  &trans  &trans    &trans    &trans       &trans
+            >;
+        };
+
+        bluetooth {
+            bindings = <
+&bootloader  &sys_reset    &trans        &trans        &trans        &trans          &trans  &trans  &trans  &trans  &trans  &trans
+&bt BT_CLR   &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    &trans  &trans  &trans  &trans  &trans  &trans
+&trans       &trans        &trans        &trans        &trans        &trans          &trans  &trans  &trans  &trans  &trans  &trans
+                                         &trans        &trans        &trans          &trans  &trans  &trans
+            >;
+        };
+
+        macros {
+            bindings = <
+&trans  &trans         &trans          &trans             &trans         &trans    &trans  &trans        &trans  &trans  &trans  &trans
+&trans  &print_screen  &paste_history  &paste_formatting  &paste_values  &trans    &trans  &email_final  &trans  &trans  &trans  &trans
+&trans  &trans         &trans          &trans             &trans         &trans    &trans  &trans        &trans  &trans  &trans  &trans
+                                       &trans             &trans         &trans    &trans  &trans        &trans
+            >;
+        };
+
+        layer_6 {
+            bindings = <
+&kp ESC    &kp Q  &kp W  &kp F      &kp P      &kp B        &kp J     &kp L     &kp U      &kp Y    &kp SEMI  &trans
+&kp TAB    &kp A  &kp R  &kp S      &kp T      &kp G        &kp M     &kp N     &kp E      &kp I    &kp O     &kp APOS
+&kp LSHFT  &kp Z  &kp X  &kp C      &kp D      &kp V        &kp K     &kp H     &kp COMMA  &kp DOT  &kp FSLH  &kp RSHFT
+                         &kp LCTRL  &kp SPACE  &kp SPACE    &kp BSPC  &kp BSPC  &to 0
             >;
         };
     };

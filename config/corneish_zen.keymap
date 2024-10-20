@@ -75,12 +75,12 @@
             // | SHFT |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  /  | ESC  |
             //                    | GUI | LWR | SPC |   | ENT | RSE  | ALT |
 
-            display-name = "COLMAK_DH";
+            display-name = "COLMAK";
             bindings = <
-&kp ESC     &kp Q             &kp W               &kp F             &kp P           &kp B          &kp J          &kp L             &kp U      &kp Y    &kp SEMICOLON  &kp DEL
-&kp TAB     &mt LEFT_SHIFT A  &mt LEFT_CONTROL R  &mt LEFT_WIN S    &mt LEFT_ALT T  &kp G          &kp M          &mt LEFT_SHIFT N  &kp E      &kp I    &kp O          &kp ENTER
-&kp LSHIFT  &kp Z             &kp X               &kp C             &kp D           &kp V          &kp K          &kp H             &kp COMMA  &kp DOT  &kp FSLH       &kp RIGHT_SHIFT
-                                                  &kp LEFT_CONTROL  &kp LEFT_ALT    &lt 1 SPACE    &kp BACKSPACE  &mo 2             &mo 3
+&kp ESC       &kp Q  &kp W             &kp F               &kp P           &kp B          &kp J        &kp L             &kp U      &kp Y    &kp SEMICOLON  &kp DEL
+&mt CLCK TAB  &kp A  &mt LEFT_SHIFT R  &mt LEFT_CONTROL S  &mt LEFT_WIN T  &kp G          &kp M        &mt LEFT_SHIFT N  &kp E      &kp I    &kp O          &kp SQT
+&kp LSHIFT    &kp Z  &kp X             &kp C               &kp D           &kp V          &kp K        &kp H             &kp COMMA  &kp DOT  &kp FSLH       &kp RIGHT_SHIFT
+                                       &kp LEFT_CONTROL    &kp LEFT_ALT    &lt 2 SPACE    &lt 3 ENTER  &kp BACKSPACE     &mo 4
             >;
         };
 
@@ -93,10 +93,10 @@
 
             display-name = "NUM";
             bindings = <
-&trans      &trans        &trans        &trans            &trans  &trans    &trans  &trans          &trans        &trans          &trans           &trans
-&trans      &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3      &kp N4  &kp N5    &trans  &kp LEFT_ARROW  &kp UP_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW  &kp SQT
-&kp LSHIFT  &kp NUMBER_6  &kp N7        &kp N8            &kp N9  &kp N0    &trans  &trans          &trans        &trans          &trans           &trans
-                                        &kp LEFT_CONTROL  &trans  &trans    &trans  &trans          &trans
+&trans  &trans        &trans        &trans        &trans  &trans    &trans  &trans          &trans        &trans          &trans           &trans
+&trans  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp N4  &kp N5    &trans  &kp LEFT_ARROW  &kp UP_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW  &trans
+&trans  &kp NUMBER_6  &kp N7        &kp N8        &kp N9  &kp N0    &trans  &trans          &trans        &trans          &trans           &trans
+                                    &trans        &trans  &trans    &trans  &trans          &trans
             >;
         };
 
@@ -145,10 +145,10 @@
 
         GAMING {
             bindings = <
-&kp ESC    &kp Q  &kp W  &kp F      &kp P      &kp B        &kp J     &kp L     &kp U      &kp Y    &kp SEMI  &trans
-&kp TAB    &kp A  &kp R  &kp S      &kp T      &kp G        &kp M     &kp N     &kp E      &kp I    &kp O     &kp ENTER
-&kp LSHFT  &kp Z  &kp X  &kp C      &kp D      &kp V        &kp K     &kp H     &kp COMMA  &kp DOT  &kp FSLH  &kp RSHFT
-                         &kp LCTRL  &kp SPACE  &kp SPACE    &kp BSPC  &kp BSPC  &to 0
+&kp ESC    &kp Q  &kp W  &kp F      &kp P         &kp B        &kp J      &kp L     &kp U      &kp Y    &kp SEMI  &kp DEL
+&kp TAB    &kp A  &kp R  &kp S      &kp T         &kp G        &kp M      &kp N     &kp E      &kp I    &kp O     &kp SQT
+&kp LSHFT  &kp Z  &kp X  &kp C      &kp D         &kp V        &kp K      &kp H     &kp COMMA  &kp DOT  &kp FSLH  &kp RSHFT
+                         &kp LCTRL  &kp LEFT_ALT  &kp SPACE    &kp ENTER  &kp BSPC  &to 0
             >;
         };
     };

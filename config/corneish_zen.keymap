@@ -77,10 +77,10 @@
 
             display-name = "COLMAK";
             bindings = <
-&kp ESC       &kp Q  &kp W             &kp F               &kp P           &kp B          &kp J        &kp L             &kp U      &kp Y    &kp SEMICOLON  &kp DEL
-&mt CLCK TAB  &kp A  &mt LEFT_SHIFT R  &mt LEFT_CONTROL S  &mt LEFT_WIN T  &kp G          &kp M        &mt LEFT_SHIFT N  &kp E      &kp I    &kp O          &kp SQT
-&kp LSHIFT    &kp Z  &kp X             &kp C               &kp D           &kp V          &kp K        &kp H             &kp COMMA  &kp DOT  &kp FSLH       &kp RIGHT_SHIFT
-                                       &kp LEFT_CONTROL    &kp LEFT_ALT    &lt 2 SPACE    &lt 3 ENTER  &kp BACKSPACE     &mo 4
+&kp ESC       &kp Q  &kp W  &kp F             &kp P           &kp B          &kp J        &kp L             &kp U      &kp Y    &kp SEMICOLON  &kp DEL
+&mt CLCK TAB  &kp A  &kp R  &kp S             &mt LEFT_WIN T  &kp G          &kp M        &mt LEFT_SHIFT N  &kp E      &kp I    &kp O          &kp SQT
+&kp LSHIFT    &kp Z  &kp X  &kp C             &kp D           &kp V          &kp K        &kp H             &kp COMMA  &kp DOT  &kp FSLH       &kp RIGHT_SHIFT
+                            &kp LEFT_CONTROL  &kp LEFT_ALT    &lt 2 SPACE    &lt 3 ENTER  &kp BACKSPACE     &mo 4
             >;
         };
 

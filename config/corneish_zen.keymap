@@ -32,28 +32,32 @@
         print_screen: print_screen {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp LEFT_SHIFT &kp LEFT_WIN &kp S>;
+            bindings = <&kp LEFT_SHIFT &kp LEFT_WIN &kp S>, <&macro_press>;
+
             label = "PRINT_SCREEN";
         };
 
         paste_history: paste_history {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp LEFT_WIN &kp V>;
+            bindings = <&kp LEFT_WIN &kp V>, <&macro_press>;
+
             label = "PASTE_HISTORY";
         };
 
         paste_values: paste_values {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp LEFT_ALT &kp H &kp V &kp V>;
+            bindings = <&kp LEFT_ALT &kp H &kp V &kp V>, <&macro_press>;
+
             label = "PASTE_VALUES";
         };
 
         paste_formatting: paste_formatting {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp LEFT_ALT &kp H &kp V &kp R>;
+            bindings = <&kp LEFT_ALT &kp H &kp V &kp R>, <&macro_press>;
+
             label = "PASTE_FORMATTING";
         };
 
@@ -127,9 +131,9 @@
 
         BLUETOOTH {
             bindings = <
-&bootloader  &sys_reset    &trans        &trans        &trans        &trans          &trans  &trans  &trans  &trans  &trans  &trans
-&bt BT_CLR   &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    &trans  &trans  &trans  &trans  &trans  &trans
-&trans       &trans        &trans        &trans        &trans        &trans          &trans  &trans  &trans  &trans  &trans  &trans
+&bootloader  &sys_reset    &trans        &trans        &trans        &trans          &trans  &trans  &trans  &trans  &kp C_VOLUME_DOWN  &kp C_VOLUME_UP
+&bt BT_CLR   &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    &trans  &trans  &trans  &trans  &kp C_BRI_DEC      &kp C_BRI_UP
+&trans       &trans        &trans        &trans        &trans        &trans          &trans  &trans  &trans  &trans  &trans             &trans
                                          &trans        &trans        &trans          &trans  &trans  &trans
             >;
         };

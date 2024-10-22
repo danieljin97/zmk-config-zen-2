@@ -34,11 +34,8 @@
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings =
-                <&kp LEFT_SHIFT>,
                 <&macro_press>,
-                <&kp LEFT_WIN>,
-                <&macro_press>,
-                <&kp S>,
+                <&kp LEFT_SHIFT &kp LEFT_WIN &kp S>,
                 <&macro_release>;
 
             label = "PRINT_SCREEN";
@@ -47,11 +44,7 @@
         paste_history: paste_history {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings =
-                <&kp LEFT_WIN>,
-                <&macro_press>,
-                <&kp V>,
-                <&macro_release>;
+            bindings = <&macro_press>, <&kp LEFT_WIN &kp V>, <&macro_release>;
 
             label = "PASTE_HISTORY";
         };
@@ -59,32 +52,14 @@
         excel_paste_values: paste_values {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings =
-                <&kp LEFT_ALT>,
-                <&macro_press>,
-                <&kp H>,
-                <&macro_press>,
-                <&kp V>,
-                <&macro_press>,
-                <&kp V>,
-                <&macro_release>;
-
+            bindings = <&kp LEFT_ALT &kp H &kp V &kp V>;
             label = "PASTE_VALUES";
         };
 
         excel_paste_formatting: paste_formatting {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings =
-                <&kp LEFT_ALT>,
-                <&macro_press>,
-                <&kp H>,
-                <&macro_press>,
-                <&kp V>,
-                <&macro_press>,
-                <&kp R>,
-                <&macro_release>;
-
+            bindings = <&kp LEFT_ALT &kp H &kp V &kp R>;
             label = "PASTE_FORMATTING";
         };
 

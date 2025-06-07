@@ -4,11 +4,11 @@
  * SPDX-License-Identifier: MIT
  */
 
+#include <dt-bindings/zmk/mouse.h>
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/backlight.h>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
-#include <dt-bindings/zmk/mouse.h>
 
 / {
     combos {
@@ -110,19 +110,13 @@
     keymap {
         compatible = "zmk,keymap";
 
-        colmak_dh {
-            // -----------------------------------------------------------------------------------------
-            // |  TAB |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  | BKSP |
-            // | CTRL |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  |  ;  |  '   |
-            // | SHFT |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  /  | ESC  |
-            //                    | GUI | LWR | SPC |   | ENT | RSE  | ALT |
-
+        COLMAC {
             display-name = "COLMAK";
             bindings = <
-&kp ESC       &kp Q             &kp W               &kp F             &kp P           &kp B          &kp J        &kp L             &kp U                &kp Y                  &kp SEMICOLON          &kp DEL
-&mt CLCK TAB  &kp A             &kp R               &kp S             &kp T           &kp G          &kp M        &mt LEFT_SHIFT N  &kp E                &kp I                  &kp O                  &kp SQT
-&kp LSHIFT    &mt LEFT_SHIFT Z  &mt LEFT_CONTROL X  &mt LEFT_WIN C    &mt LEFT_ALT D  &kp V          &kp K        &mt RIGHT_ALT H   &mt RIGHT_WIN COMMA  &mt RIGHT_CONTROL DOT  &mt RIGHT_SHIFT SLASH  &kp RIGHT_SHIFT
-                                                    &kp LEFT_CONTROL  &kp LEFT_ALT    &lt 1 SPACE    &lt 2 ENTER  &lt 7 BACKSPACE   &mo 3
+&kp ESC       &kp Q             &kp W               &kp F           &kp P           &kp B          &kp J        &kp L             &kp U                &kp Y                  &kp SEMICOLON          &kp DEL
+&mt CLCK TAB  &kp A             &kp R               &kp S           &kp T           &kp G          &kp M        &mt LEFT_SHIFT N  &kp E                &kp I                  &kp O                  &kp SQT
+&kp LSHIFT    &mt LEFT_SHIFT Z  &mt LEFT_CONTROL X  &mt LEFT_ALT C  &mt LEFT_GUI D  &kp V          &kp K        &mt RIGHT_WIN H   &mt RIGHT_ALT COMMA  &mt RIGHT_CONTROL DOT  &mt RIGHT_SHIFT SLASH  &kp RIGHT_SHIFT
+                                                    &kp LEFT_ALT    &kp LEFT_GUI    &lt 1 SPACE    &lt 2 ENTER  &kp BACKSPACE     &mo 3
             >;
         };
 
@@ -191,16 +185,23 @@
 &kp ESC    &kp Q  &kp W  &kp F      &kp P  &kp B        &kp J      &kp L     &kp U      &kp Y    &kp SEMI  &kp DEL
 &kp TAB    &kp A  &kp R  &kp S      &kp T  &kp G        &kp M      &kp N     &kp E      &kp I    &kp O     &kp SQT
 &kp LSHFT  &kp Z  &kp X  &kp C      &kp D  &kp V        &kp K      &kp H     &kp COMMA  &kp DOT  &kp FSLH  &kp RSHFT
-                         &kp LCTRL  &kp O  &kp SPACE    &kp ENTER  &kp BSPC  &to 0
+                         &kp LCTRL  &kp O  &kp SPACE    &kp ENTER  &kp BSPC  &to 7
             >;
         };
 
-        mouse {
+        COLWIN {
+            // -----------------------------------------------------------------------------------------
+            // |  TAB |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  | BKSP |
+            // | CTRL |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  |  ;  |  '   |
+            // | SHFT |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  /  | ESC  |
+            //                    | GUI | LWR | SPC |   | ENT | RSE  | ALT |
+
+            display-name = "COLMAK";
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans    &trans    &trans     &trans    &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &mkp MB5  &mkp MB1   &mkp MB2  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &mkp MB4  &mkp MCLK  &trans    &trans  &trans  &trans
-                        &trans  &trans  &trans    &trans    &trans     &trans
+&kp ESC       &kp Q             &kp W               &kp F             &kp P           &kp B          &kp J        &kp L             &kp U                &kp Y                  &kp SEMICOLON          &kp DEL
+&mt CLCK TAB  &kp A             &kp R               &kp S             &kp T           &kp G          &kp M        &mt LEFT_SHIFT N  &kp E                &kp I                  &kp O                  &kp SQT
+&kp LSHIFT    &mt LEFT_SHIFT Z  &mt LEFT_CONTROL X  &mt LEFT_WIN C    &mt LEFT_ALT D  &kp V          &kp K        &mt RIGHT_ALT H   &mt RIGHT_WIN COMMA  &mt RIGHT_CONTROL DOT  &mt RIGHT_SHIFT SLASH  &kp RIGHT_SHIFT
+                                                    &kp LEFT_CONTROL  &kp LEFT_ALT    &lt 1 SPACE    &lt 2 ENTER  &kp BACKSPACE     &mo 3
             >;
         };
     };

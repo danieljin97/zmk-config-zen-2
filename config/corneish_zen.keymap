@@ -28,6 +28,16 @@
             bindings = <&to 6>;
             key-positions = <6 18>;
         };
+
+        to_win {
+            bindings = <&to 7>;
+            key-positions = <11 23>;
+        };
+
+        to_mac {
+            bindings = <&to 0>;
+            key-positions = <10 22>;
+        };
     };
 
     macros {

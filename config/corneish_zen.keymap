@@ -123,10 +123,10 @@
         COLMAC {
             display-name = "COLMAK";
             bindings = <
-&kp ESC           &kp Q           &kp W               &kp F           &kp P           &kp B          &kp J        &kp L             &kp U                &kp Y                  &kp SEMICOLON          &kp DEL
-&mt CAPSLOCK TAB  &kp A           &kp R               &kp S           &kp T           &kp G          &kp M        &mt LEFT_SHIFT N  &kp E                &kp I                  &kp O                  &kp SQT
-&kp LSHIFT        &mt CAPSLOCK Z  &mt LEFT_CONTROL X  &mt LEFT_ALT C  &mt LEFT_GUI D  &kp V          &kp K        &mt RIGHT_WIN H   &mt RIGHT_ALT COMMA  &mt RIGHT_CONTROL DOT  &mt RIGHT_SHIFT SLASH  &kp RIGHT_SHIFT
-                                                      &kp LEFT_ALT    &kp LEFT_GUI    &lt 1 SPACE    &lt 2 ENTER  &kp BACKSPACE     &mo 3
+&kp ESC           &kp Q        &kp W               &kp F           &kp P           &kp B          &kp J        &kp L             &kp U                &kp Y                  &kp SEMICOLON          &kp DEL
+&mt CAPSLOCK TAB  &kp A        &kp R               &kp S           &kp T           &kp G          &kp M        &mt LEFT_SHIFT N  &kp E                &kp I                  &kp O                  &kp SQT
+&kp LSHIFT        &mt GLOBE Z  &mt LEFT_CONTROL X  &mt LEFT_ALT C  &mt LEFT_GUI D  &kp V          &kp K        &mt RIGHT_WIN H   &mt RIGHT_ALT COMMA  &mt RIGHT_CONTROL DOT  &mt RIGHT_SHIFT SLASH  &kp RIGHT_SHIFT
+                                                   &kp LEFT_ALT    &kp LEFT_GUI    &lt 1 SPACE    &lt 2 ENTER  &kp BACKSPACE     &mo 3
             >;
         };
 

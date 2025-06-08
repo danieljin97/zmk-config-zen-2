@@ -45,8 +45,8 @@
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings =
-                <&macro_press>,
-                <&kp LEFT_SHIFT &kp LEFT_WIN &kp S>,
+                <&macro_pause_for_release>,
+                <&kp LEFT_SHIFT &kp LEFT_CONTROL &kp LEFT_COMMAND &kp NUMBER_4>,
                 <&macro_release>;
 
             label = "PRINT_SCREEN";
@@ -58,20 +58,6 @@
             bindings = <&macro_press>, <&kp LEFT_WIN &kp V>, <&macro_release>;
 
             label = "PASTE_HISTORY";
-        };
-
-        excel_paste_values: paste_values {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&kp LEFT_ALT &kp H &kp V &kp V>;
-            label = "PASTE_VALUES";
-        };
-
-        excel_paste_formatting: paste_formatting {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&kp LEFT_ALT &kp H &kp V &kp R>;
-            label = "PASTE_FORMATTING";
         };
 
         email_final: create_table {
@@ -94,27 +80,6 @@
             bindings = <&kp LS(G) &kp O &kp O &kp D &kp SPACE &kp A &kp F &kp T &kp E &kp R &kp N &kp O &kp O &kp N &kp SPACE &kp COMMA &kp SPACE &kp LS(I) &kp SPACE &kp H &kp O &kp P &kp E &kp SPACE &kp Y &kp O &kp U &kp SQT &kp R &kp E &kp SPACE &kp D &kp O &kp I &kp N &kp G &kp SPACE &kp W &kp E &kp L &kp L &kp COMMA>;
             label = "START_EMAIL_AFTER";
         };
-
-        excel_option: excel_option {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&sk LEFT_SHIFT &kp F10>;
-            label = "EXCEL_OPTION";
-        };
-
-        excel_add_column: excel_add_column {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&sk LEFT_CONTROL &kp PLUS>;
-            label = "EXCEL_ADD_COLUMN";
-        };
-
-        excel_delete: excel_delete {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&sk LEFT_CONTROL &kp MINUS>;
-            label = "EXCEL_DELETE";
-        };
     };
 
     keymap {
@@ -123,9 +88,9 @@
         COLMAC {
             display-name = "COLMAK";
             bindings = <
-&kp ESC           &kp Q        &kp W               &kp F           &kp P           &kp B          &kp J        &kp L             &kp U                &kp Y                  &kp SEMICOLON          &kp DEL
-&mt CAPSLOCK TAB  &kp A        &kp R               &kp S           &kp T           &kp G          &kp M        &mt LEFT_SHIFT N  &kp E                &kp I                  &kp O                  &kp SQT
-&kp LSHIFT        &mt GLOBE Z  &mt LEFT_CONTROL X  &mt LEFT_ALT C  &mt LEFT_GUI D  &kp V          &kp K        &mt RIGHT_WIN H   &mt RIGHT_ALT COMMA  &mt RIGHT_CONTROL DOT  &mt RIGHT_SHIFT SLASH  &kp RIGHT_SHIFT
+&kp ESC           &kp Q        &kp W               &kp F           &kp P           &kp B          &kp J        &kp L             &kp U                &kp Y                  &kp SEMICOLON    &kp DEL
+&mt CAPSLOCK TAB  &kp A        &kp R               &kp S           &kp T           &kp G          &kp M        &mt LEFT_SHIFT N  &kp E                &kp I                  &kp O            &kp SQT
+&kp LSHIFT        &mt GLOBE Z  &mt LEFT_CONTROL X  &mt LEFT_ALT C  &mt LEFT_GUI D  &kp V          &kp K        &mt RIGHT_WIN H   &mt RIGHT_ALT COMMA  &mt RIGHT_CONTROL DOT  &mt GLOBE SLASH  &kp RIGHT_SHIFT
                                                    &kp LEFT_ALT    &kp LEFT_GUI    &lt 1 SPACE    &lt 2 ENTER  &kp BACKSPACE     &mo 3
             >;
         };
@@ -139,10 +104,10 @@
 
             display-name = "NUM";
             bindings = <
-&trans  &kp NUMBER_1      &kp NUMBER_2        &kp NUMBER_3    &kp NUMBER_4    &kp N5    &trans  &trans          &kp UP_ARROW    &trans     &trans  &trans
-&trans  &kp NUMBER_6      &kp N7              &kp N8          &kp N9          &kp N0    &trans  &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT  &trans  &trans
-&trans  &mt LEFT_SHIFT Z  &mt LEFT_CONTROL X  &mt LEFT_WIN C  &mt LEFT_ALT D  &trans    &trans  &trans          &trans          &trans     &trans  &trans
-                                              &trans          &trans          &trans    &trans  &trans          &trans
+&trans  &kp NUMBER_1  &kp NUMBER_2        &kp NUMBER_3    &kp NUMBER_4    &kp N5    &trans  &trans          &kp UP_ARROW    &trans     &trans  &trans
+&trans  &kp NUMBER_6  &kp N7              &kp N8          &kp N9          &kp N0    &trans  &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT  &trans  &trans
+&trans  &mt GLOBE Z   &mt LEFT_CONTROL X  &mt LEFT_ALT C  &mt LEFT_WIN D  &trans    &trans  &trans          &trans          &trans     &trans  &trans
+                                          &trans          &trans          &trans    &trans  &trans          &trans
             >;
         };
 
@@ -154,19 +119,19 @@
             //                    | GUI |     | SPC |   | ENT |     | ALT |
 
             bindings = <
-&kp F1  &kp F2            &kp F3              &kp F4          &kp F5          &kp F6     &trans  &trans    &kp PG_UP      &trans   &trans  &trans
-&kp F7  &kp F8            &kp F9              &kp F10         &kp F11         &kp F12    &trans  &kp HOME  &kp PAGE_DOWN  &kp END  &trans  &trans
-&trans  &mt LEFT_SHIFT Z  &mt LEFT_CONTROL X  &mt LEFT_WIN C  &mt LEFT_ALT D  &trans     &trans  &kp INS   &trans         &trans   &trans  &trans
-                                              &trans          &trans          &trans     &trans  &trans    &trans
+&kp F1  &kp F2       &kp F3              &kp F4          &kp F5          &kp F6     &trans  &trans    &kp PG_UP      &trans   &trans  &trans
+&kp F7  &kp F8       &kp F9              &kp F10         &kp F11         &kp F12    &trans  &kp HOME  &kp PAGE_DOWN  &kp END  &trans  &trans
+&trans  &mt GLOBE Z  &mt LEFT_CONTROL X  &mt LEFT_ALT C  &mt LEFT_WIN D  &trans     &trans  &kp INS   &trans         &trans   &trans  &trans
+                                         &trans          &trans          &trans     &trans  &trans    &trans
             >;
         };
 
         symbols {
             bindings = <
-&kp TILDE  &kp EXCL          &kp AT              &kp HASH          &kp DLLR              &kp PRCNT         &kp CARET        &kp AMPS               &kp KP_MULTIPLY    &kp MINUS       &kp EQUAL  &kp BACKSLASH
-&kp GRAVE  &trans            &trans              &kp LEFT_BRACKET  &kp LEFT_PARENTHESIS  &trans            &trans           &kp RIGHT_PARENTHESIS  &kp RIGHT_BRACKET  &kp UNDERSCORE  &kp PLUS   &kp PIPE
-&trans     &mt LEFT_SHIFT Z  &mt LEFT_CONTROL X  &mt LEFT_WIN C    &mt LEFT_ALT D        &kp LEFT_BRACE    &kp RIGHT_BRACE  &trans                 &trans             &trans          &trans     &trans
-                                                 &trans            &trans                &trans            &trans           &trans                 &trans
+&kp TILDE  &kp EXCL     &kp AT              &kp HASH          &kp DLLR              &kp PRCNT         &kp CARET        &kp AMPS               &kp KP_MULTIPLY    &kp MINUS       &kp EQUAL  &kp BACKSLASH
+&kp GRAVE  &trans       &trans              &kp LEFT_BRACKET  &kp LEFT_PARENTHESIS  &trans            &trans           &kp RIGHT_PARENTHESIS  &kp RIGHT_BRACKET  &kp UNDERSCORE  &kp PLUS   &kp PIPE
+&trans     &mt GLOBE Z  &mt LEFT_CONTROL X  &mt LEFT_ALT C    &mt LEFT_WIN D        &kp LEFT_BRACE    &kp RIGHT_BRACE  &trans                 &trans             &trans          &trans     &trans
+                                            &trans            &trans                &trans            &trans           &trans                 &trans
             >;
 
             display-name = "SYMBOLS";
@@ -184,7 +149,7 @@
         MACROS {
             bindings = <
 &trans  &trans         &trans          &trans  &trans  &trans    &trans  &start_email_morning  &start_email_after       &email_final   &trans  &trans
-&trans  &print_screen  &paste_history  &trans  &trans  &trans    &trans  &excel_paste_values   &excel_paste_formatting  &trans         &trans  &trans
+&trans  &print_screen  &paste_history  &trans  &trans  &trans    &trans  &print_screen         &excel_paste_formatting  &trans         &trans  &trans
 &trans  &trans         &trans          &trans  &trans  &trans    &trans  &excel_add_column     &excel_delete            &excel_option  &trans  &trans
                                        &trans  &trans  &trans    &trans  &trans                &trans
             >;

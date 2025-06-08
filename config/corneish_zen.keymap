@@ -86,7 +86,7 @@
         compatible = "zmk,keymap";
 
         COLMAC {
-            display-name = "COLMAK";
+            display-name = "COLMAC";
             bindings = <
 &kp ESC           &kp Q        &kp W               &kp F           &kp P           &kp B          &kp J        &kp L             &kp U                &kp Y                  &kp SEMICOLON    &kp DEL
 &mt CAPSLOCK TAB  &kp A        &kp R               &kp S           &kp T           &kp G          &kp M        &mt LEFT_SHIFT N  &kp E                &kp I                  &kp O            &kp SQT
@@ -148,9 +148,9 @@
 
         MACROS {
             bindings = <
-&trans  &trans         &trans          &trans  &trans  &trans    &trans  &start_email_morning  &start_email_after       &email_final   &trans  &trans
-&trans  &print_screen  &paste_history  &trans  &trans  &trans    &trans  &print_screen         &excel_paste_formatting  &trans         &trans  &trans
-&trans  &trans         &trans          &trans  &trans  &trans    &trans  &excel_add_column     &excel_delete            &excel_option  &trans  &trans
+&trans  &trans         &trans          &trans  &trans  &trans    &trans  &start_email_morning  &start_email_after  &email_final  &trans  &trans
+&trans  &print_screen  &paste_history  &trans  &trans  &trans    &trans  &print_screen         &trans              &trans        &trans  &trans
+&trans  &trans         &trans          &trans  &trans  &trans    &trans  &trans                &trans              &trans        &trans  &trans
                                        &trans  &trans  &trans    &trans  &trans                &trans
             >;
         };
@@ -171,7 +171,7 @@
             // | SHFT |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  /  | ESC  |
             //                    | GUI | LWR | SPC |   | ENT | RSE  | ALT |
 
-            display-name = "COLMAK";
+            display-name = "COLWIN";
             bindings = <
 &kp ESC       &kp Q             &kp W               &kp F             &kp P           &kp B          &kp J        &kp L             &kp U                &kp Y                  &kp SEMICOLON          &kp DEL
 &mt CLCK TAB  &kp A             &kp R               &kp S             &kp T           &kp G          &kp M        &mt LEFT_SHIFT N  &kp E                &kp I                  &kp O                  &kp SQT
